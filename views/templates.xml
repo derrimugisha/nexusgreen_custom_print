@@ -10,10 +10,10 @@
             } -->
           </style>
           <!-- purchase order ref -->
-          <div class="row mb-3">
+          <div class="row py-4">
             <div class="col">
               <div class="fw-bolder">
-                <strong>Purchase Order:</strong>
+                <h3>Purchase Order:</h3>
                 <span t-field="o.name" />
               </div>
             </div>
@@ -21,7 +21,7 @@
           <!-- end of purchase order ref -->
 
           <!-- represenative section -->
-          <div class="row mb-3">
+          <div class="row mb-3 px-4">
             <div class="col-12 border border-dark">
               <div class="row">
                 <div class="col-4">
@@ -186,7 +186,7 @@
 
           <!-- footer section -->
           <div class="row">
-            <div class="col-12 border border-dark">
+            <div class="col-12 border border-dark px-4">
               <div>
                 <div style="font-weight: 900 !important;">
                   If you have any questions about this purchase order, please contact
@@ -198,173 +198,114 @@
                 </div>
               </div>
               <hr class="border-dark" />
-              <div>
-                <div class="row">
-                  <!-- created by section -->
-                  <div class="col-4">
-                    <div class="mb-4 font-weight-bold" style="font-weight: 900 !important;">
-                      <div class="row">
-                        <div class="col-6">Created By</div>
-                        <div class="col-6">
-                          <span t-esc="o.create_uid.name" />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-6 d-flex align-items-center">
-                        <div>Signature: </div>
-                      </div>
-                      <div class="col-6">
-                        <img t-if="o.create_uid.user_signature"
-                          t-att-src="image_data_uri(o.create_uid.user_signature)" alt="company_cop"
-                          class="img-fluid" />
-                      </div>
-                    </div>
-                    <!-- <div class="row">
-                      <div class="col-6">Signature: </div>
-                      <div class="col-6">............</div>
-                    </div> -->
-                    <div class="row">
-                      <div class="col-6">Date: </div>
-                      <div class="col-6">
-                        <span t-field="o.create_date" t-options="{'widget':'date'}" />
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-6">Date: </div>
-                      <div class="col-6">............</div>
-                    </div>
-                  </div>
-                  <!-- end of created by section -->
 
-                  <!-- checked by section -->
-                  <div class="col-4">
-                    <div class="mb-4 font-weight-bold" style="font-weight: 900 !important;">
-                      <div class="row">
-                        <div class="col-6">Checked By</div>
-                        <div class="col-6">
-                          <span t-esc="o.checked_by.name" />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-6 d-flex align-items-center">
-                        <div class="col-6 d-flex align-items-center">
-                          <div>Signature: </div>
-                        </div>
-                      </div>
-                      <div class="col-6">
-                        <t t-if="o.state == 'approved'">
-                          <img t-if="o.checked_by.user_signature"
-                            t-att-src="image_data_uri(o.checked_by.user_signature)"
-                            alt="company_cop" class="img-fluid" />
-                        </t> .</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-6">Date: </div>
-                      <div class="col-6">
-                        <t t-if="o.state == 'approved'">
-                          <span
-                            t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')" />
-                        </t>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- end of checked by section -->
+              <div class="row">
 
-                  <!-- approved by section -->
-                  <div class="col-4">
-                    <div class="mb-4 font-weight-bold" style="font-weight: 900 !important;">
-                      <div class="row">
-                        <div class="col">Approved By</div>
-                        <div class="col">
-                          <t t-if="o.state in ['approved','pm','coo','ceo']">
-                            <span t-esc="o.approval_by.name" />
-                          </t>
-                        </div>
-                      </div>
+                <!-- col1 -->
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <strong>Created By</strong>
                     </div>
-                    <div class="row">
-                      <div class="col-6 d-flex align-items-center">
-                        <div>Signature: </div>
-                      </div>
-                      <div class="col-6">
-                        <t t-if="o.state in ['approved','pm','coo','ceo']">
-                          <img t-if="o.approval_by.user_signature"
-                            t-att-src="image_data_uri(o.approval_by.user_signature)"
-                            alt="company_cop" class="img-fluid" />
-                        </t>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-6">Date: </div>
-                      <div class="col-6">
-                        <t t-if="o.state in ['approved','pm','coo','ceo']">
-                          <span t-esc="o.approved_date" />
-                        </t>
-                      </div>
+                    <div class="col-6">
+                      <span t-esc="o.create_uid.name" />
                     </div>
                   </div>
-                  <!-- end of approved by section -->
+                  <div class="row">
+                    <div class="col-6">
+                      <strong>Signature:</strong>
+                    </div>
+                    <div class="col-6">
+                      <img t-if="o.create_uid.user_signature"
+                        t-att-src="image_data_uri(o.create_uid.user_signature)" alt="company_cop"
+                        class="img-fluid" />
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <strong>Date:</strong>
+                    </div>
+                    <div class="col-6">
+                      <span t-field="o.create_date" t-options="{'widget':'date'}" />
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <hr class="border-dark" />
-              <div>
-                <div class="row">
-                  <!-- created by section -->
-                  <div class="col-4">
-                    <div class="mb-4 font-weight-bold" style="font-weight: 900 !important;">
-                      Accepted by
-                    </div>
-                    <div class="row">
-                      <div class="col-6 d-flex align-items-center">
-                        <div>Signature: </div>
-                      </div>
-                      <div class="col-6">............</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-6">Date: </div>
-                      <div class="col-6">............</div>
-                    </div>
-                  </div>
-                  <!-- end of created by section -->
+                <!-- end of col1 -->
 
-                  <!-- authorised by CFO -->
-                  <div class="col-4">
-                    <div class="mb-4 font-weight-bold" style="font-weight: 900 !important;">
-                      <div class="row">
-                        <div class="col">Authorised by CFO</div>
-                        <div class="col">
-                          <t t-if="o.state in ['approved']">
-                            <span t-esc="o.ceo.name" />
-                          </t>
-                        </div>
-                      </div>
+                <!-- col2 -->
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <strong>Checked By</strong>
                     </div>
-                    <div class="row">
-                      <div class="col-6 d-flex align-items-center">
-                        <div class="col-6 d-flex align-items-center">
-                          <div>Signature: </div>
-                        </div>
-                      </div>
-                      <div class="col-6"><t t-if="o.state == 'approved' and o.require_ceo">
-                          <img t-if="o.ceo.user_signature"
-                            t-att-src="image_data_uri(o.ceo.user_signature)"
-                            alt="company_cop" class="img-fluid" />
-                        </t> .</div>
-                    </div>
-                    <div class="row">
-                      <div class="col-6">Date: </div>
-                      <div class="col-6">
-                        <t t-if="o.state == 'approved' and o.require_ceo">
-                          <span t-esc="o.ceo_approval_date" />
-                        </t>
-                      </div>
+                    <div class="col-6">
+                      <span t-esc="o.checked_by.name" />
                     </div>
                   </div>
-                  <!-- end of authorised by CFO -->
+                  <div class="row">
+                    <div class="col-6">
+                      <strong>Signature:</strong>
+                    </div>
+                    <div class="col-6">
+                      <t t-if="o.state == 'approved'">
+                        <img t-if="o.checked_by.user_signature"
+                          t-att-src="image_data_uri(o.checked_by.user_signature)"
+                          alt="company_cop" class="img-fluid" />
+                      </t>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <strong>Date:</strong>
+                    </div>
+                    <div class="col-6">
+                      <t t-if="o.state == 'approved'">
+                        <span
+                          t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')" />
+                      </t>
+                    </div>
+                  </div>
                 </div>
+                <!-- end of col2 -->
+
+                <!-- col3 -->
+                <div class="col-4">
+                  <div class="row">
+                    <div class="col-6">
+                      <strong>Approved By</strong>
+                    </div>
+                    <div class="col-6">
+                      <t t-if="o.state in ['approved','pm','coo','ceo']">
+                        <span t-esc="o.approval_by.name" />
+                      </t>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <strong>Signature:</strong>
+                    </div>
+                    <div class="col-6">
+                      <t t-if="o.state in ['approved','pm','coo','ceo']">
+                        <img t-if="o.approval_by.user_signature"
+                          t-att-src="image_data_uri(o.approval_by.user_signature)"
+                          alt="company_cop" class="img-fluid" />
+                      </t>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <strong>Date:</strong>
+                    </div>
+                    <div class="col-6">
+                      <t t-if="o.state in ['approved','pm','coo','ceo']">
+                        <span t-esc="o.approved_date" />
+                      </t>
+                    </div>
+                  </div>
+                </div>
+                <!-- end of cole -->
               </div>
+
             </div>
           </div>
           <!-- end of footer section -->
