@@ -7,8 +7,8 @@
         <div class="page">
           <style> th, td { border: 1px solid #000000 !important; } <!-- td{
             padding: 0.25rem !important;
-            } --> .signature-div img { width:
-            100%; height: auto; object-fit: contain; } </style>
+            } --> img {width: auto; height : auto;
+            max-height: 100%; max-width: 100%; } </style>
           <!-- purchase order ref -->
           <div class="row py-4">
             <div class="col">
@@ -218,7 +218,7 @@
                     <div class="col-6">
                       <img t-if="o.create_uid.user_signature"
                         t-att-src="image_data_uri(o.create_uid.user_signature)" alt="company_cop"
-                        class="img-fluid" />
+                      />
                     </div>
                   </div>
                   <div class="row">
@@ -250,7 +250,7 @@
                       <t t-if="o.state == 'approved'">
                         <img t-if="o.checked_by.user_signature"
                           t-att-src="image_data_uri(o.checked_by.user_signature)"
-                          alt="company_cop" class="img-fluid" />
+                          alt="company_cop" />
                       </t>
                     </div>
                   </div>
@@ -288,7 +288,7 @@
                       <t t-if="o.state in ['approved','pm','coo','ceo']">
                         <img t-if="o.approval_by.user_signature"
                           t-att-src="image_data_uri(o.approval_by.user_signature)"
-                          alt="company_cop" class="img-fluid" />
+                          alt="company_cop" />
                       </t>
                     </div>
                   </div>
