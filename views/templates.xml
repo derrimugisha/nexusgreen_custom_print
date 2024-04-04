@@ -7,8 +7,8 @@
         <div class="page">
           <style> th, td { border: 1px solid #000000 !important; } <!-- td{
             padding: 0.25rem !important;
-            } --> img {width: auto; height : auto;
-            max-height: 100%; max-width: 100%; } </style>
+            } --> img {display: block; width:
+            100%; } </style>
           <!-- purchase order ref -->
           <div class="row py-4">
             <div class="col">
