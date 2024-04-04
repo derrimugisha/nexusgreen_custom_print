@@ -193,8 +193,8 @@
                 </div>
                 <hr class="border-dark" />
                 <div>
-                  Email:....................
-                  Or: ......................
+                  Email:.........................................
+                  Or: .......................................
                 </div>
               </div>
               <hr class="border-dark" />
@@ -217,7 +217,7 @@
                       <div class="col-6">
                         <img t-if="o.create_uid.user_signature"
                           t-att-src="image_data_uri(o.create_uid.user_signature)" alt="company_cop"
-                          style="width:auto;height:100px;" />
+                          class="img-fluid" />
                       </div>
                     </div>
                     <!-- <div class="row">
@@ -257,9 +257,8 @@
                         <t t-if="o.state == 'approved'">
                           <img t-if="o.checked_by.user_signature"
                             t-att-src="image_data_uri(o.checked_by.user_signature)"
-                            alt="company_cop" style="width:auto;height:100px;" />
-                        </t>
-                        .</div>
+                            alt="company_cop" class="img-fluid" />
+                        </t> .</div>
                     </div>
                     <div class="row">
                       <div class="col-6">Date: </div>
@@ -293,7 +292,7 @@
                         <t t-if="o.state in ['approved','pm','coo','ceo']">
                           <img t-if="o.approval_by.user_signature"
                             t-att-src="image_data_uri(o.approval_by.user_signature)"
-                            alt="company_cop" style="width:auto;height:120px;" />
+                            alt="company_cop" class="img-fluid" />
                         </t>
                       </div>
                     </div>
@@ -351,9 +350,8 @@
                       <div class="col-6"><t t-if="o.state == 'approved' and o.require_ceo">
                           <img t-if="o.ceo.user_signature"
                             t-att-src="image_data_uri(o.ceo.user_signature)"
-                            alt="company_cop" style="width:auto;height:100px;" />
-                        </t>
-                        .</div>
+                            alt="company_cop" class="img-fluid" />
+                        </t> .</div>
                     </div>
                     <div class="row">
                       <div class="col-6">Date: </div>
