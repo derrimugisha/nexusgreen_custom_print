@@ -203,8 +203,8 @@
                   <div class="col-4">
                     <div class="mb-4 font-weight-bold" style="font-weight: 900 !important;">
                       <div class="row">
-                        <div class="col">Created By</div>
-                        <div class="col">
+                        <div class="col-6">Created By</div>
+                        <div class="col-6">
                           <span t-esc="o.create_uid.name" />
                         </div>
                       </div>
@@ -238,8 +238,8 @@
                   <div class="col-4">
                     <div class="mb-4 font-weight-bold" style="font-weight: 900 !important;">
                       <div class="row">
-                        <div class="col">Checked By</div>
-                        <div class="col">
+                        <div class="col-6">Checked By</div>
+                        <div class="col-6">
                           <span t-esc="o.checked_by.name" />
                         </div>
                       </div>
