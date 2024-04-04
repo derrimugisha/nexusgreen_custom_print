@@ -13,7 +13,8 @@
           <div class="row mb-3">
             <div class="col">
               <div class="fw-bolder">
-                Purchase Order
+                <strong>Purchase Order:</strong>
+                <span t-field="o.name" />
               </div>
             </div>
           </div>
@@ -210,7 +211,9 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-6">Signature: </div>
+                      <div class="col-6 d-flex align-items-center">
+                        <div>Signature: </div>
+                      </div>
                       <div class="col-6">
                         <img t-if="o.create_uid.user_signature"
                           t-att-src="image_data_uri(o.create_uid.user_signature)" alt="company_cop"
@@ -245,7 +248,11 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-6">Signature: </div>
+                      <div class="col-6 d-flex align-items-center">
+                        <div class="col-6 d-flex align-items-center">
+                          <div>Signature: </div>
+                        </div>
+                      </div>
                       <div class="col-6">
                         <t t-if="o.state == 'approved'">
                           <img t-if="o.checked_by.user_signature"
@@ -279,7 +286,9 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-6">Signature: </div>
+                      <div class="col-6 d-flex align-items-center">
+                        <div>Signature: </div>
+                      </div>
                       <div class="col-6">
                         <t t-if="o.state in ['approved','pm','coo','ceo']">
                           <img t-if="o.approval_by.user_signature"
@@ -309,7 +318,9 @@
                       Accepted by
                     </div>
                     <div class="row">
-                      <div class="col-6">Signature: </div>
+                      <div class="col-6 d-flex align-items-center">
+                        <div>Signature: </div>
+                      </div>
                       <div class="col-6">............</div>
                     </div>
                     <div class="row">
@@ -332,7 +343,11 @@
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-6">Signature: </div>
+                      <div class="col-6 d-flex align-items-center">
+                        <div class="col-6 d-flex align-items-center">
+                          <div>Signature: </div>
+                        </div>
+                      </div>
                       <div class="col-6"><t t-if="o.state == 'approved' and o.require_ceo">
                           <img t-if="o.ceo.user_signature"
                             t-att-src="image_data_uri(o.ceo.user_signature)"
