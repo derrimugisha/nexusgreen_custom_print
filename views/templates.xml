@@ -8,7 +8,7 @@
           <style> th, td { border: 1px solid #000000 !important; } <!-- td{
             padding: 0.25rem !important;
             } --> img { width: 100%; height:100%;
-            object-fit: contain; } .avoid-break { page-break-inside: avoid; } </style>
+            object-fit: contain; } .avoid-break { page-break-before: always; } </style>
           <!-- purchase order ref -->
           <div class="row py-4">
             <div class="col">
