@@ -409,12 +409,8 @@
           </div>
           <!-- end of footer section -->
 
-          <!-- divider -->
-          <!-- <hr class="border-dark" /> -->
-          <!-- end of divider -->
-          <!-- <div>
-            Everything Solar
-          </div> -->
+          <p t-field="o.notes" />
+          <div class="oe_structure" />
         </div>
 
         <div class="footer">
