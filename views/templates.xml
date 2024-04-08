@@ -183,6 +183,11 @@
           </div>
           <!-- end of line items section -->
 
+          <div class="col-12">
+            <p t-field="o.notes" />
+            <div class="oe_structure" />
+          </div>
+
           <!-- footer section -->
           <div class="row">
             <div class="col-12 border border-dark px-5">
@@ -408,9 +413,6 @@
             </div>
           </div>
           <!-- end of footer section -->
-
-          <p t-field="o.notes" />
-          <div class="oe_structure" />
         </div>
 
         <div class="footer">
