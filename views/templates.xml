@@ -10,7 +10,8 @@
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.5;
             color: #cccccc; font-size: 72px; z-index: -1; } </style>
           <div class="watermark">
-            <!-- <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" class="float-left"
+            <!-- <img t-if="company.logo" t-att-src="image_data_uri(company.logo)"
+            class="float-left"
               alt="Logo" /> -->
           </div>
           <!-- purchase order ref -->
@@ -212,10 +213,10 @@
                 <!-- col1 -->
                 <div class="col-4">
                   <div class="row">
-                    <div class="col-6">
+                    <div class="col-6" style="height: 60px;">
                       <strong>Created By</strong>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6" style="height: 60px;">
                       <span t-esc="o.create_uid.name" />
                     </div>
                   </div>
@@ -247,10 +248,10 @@
                 <!-- col2 -->
                 <div class="col-4">
                   <div class="row">
-                    <div class="col-6">
+                    <div class="col-6" style="height: 60px;">
                       <strong>Checked By</strong>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6" style="height: 60px;">
                       <span t-esc="o.checked_by.name" />
                     </div>
                   </div>
@@ -287,10 +288,10 @@
                 <!-- col3 -->
                 <div class="col-4">
                   <div class="row">
-                    <div class="col-6">
+                    <div class="col-6" style="height: 60px;">
                       <strong>Approved By</strong>
                     </div>
-                    <div class="col-6">
+                    <div class="col-6" style="height: 60px;">
                       <t t-if="o.state in ['approved','pm','coo','ceo']">
                         <span t-esc="o.approval_by.name" />
                       </t>
