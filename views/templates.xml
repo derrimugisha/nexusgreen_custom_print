@@ -189,8 +189,8 @@
           </div>
 
           <!-- footer section -->
-          <div class="row avoid-break">
-            <div class="col-12 border border-dark px-5">
+          <div class="row">
+            <div class="col-12 border border-dark px-5 avoid-break">
               <div>
                 <div style="font-weight: 900 !important;">
                   If you have any questions about this purchase order, please contact
