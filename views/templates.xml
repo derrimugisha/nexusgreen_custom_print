@@ -259,15 +259,15 @@
                       <strong>Signature:</strong>
                     </div>
                     <div class="col-6">
-                      <t t-if="o.state == 'approved'">
-                        <div style="height: 80px;">
+                      <div style="height: 80px;">
+                        <t t-if="o.state == 'approved'">
                           <img t-if="o.checked_by.user_signature"
                             t-att-src="image_data_uri(o.checked_by.user_signature)"
                             alt="company_cop"
                             style="width: 100%; height:100%;
                         object-fit: contain;" />
-                        </div>
-                      </t>
+                        </t>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
@@ -301,15 +301,16 @@
                       <strong>Signature:</strong>
                     </div>
                     <div class="col-6">
-                      <t t-if="o.state in ['approved','pm','coo','ceo']">
-                        <div style="height: 80px;">
+                      <div style="height: 80px;">
+                        <t t-if="o.state in ['approved','pm','coo','ceo']">
+
                           <img t-if="o.approval_by.user_signature"
                             t-att-src="image_data_uri(o.approval_by.user_signature)"
                             alt="company_cop"
                             style="width: 100%; height:100%;
                           object-fit: contain;" />
-                        </div>
-                      </t>
+                        </t>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
