@@ -10,7 +10,8 @@
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.5;
             color: #cccccc; font-size: 72px; z-index: -1; } </style>
           <div class="watermark">
-            <img t-att-src="website.company_id.logo" />
+            <img t-if="o and o.company_id and o.company_id.logo"
+              t-att-src="'data:image/png;base64,%s' % o.company_id.logo" />
           </div>
           <!-- purchase order ref -->
           <div class="row py-4">
