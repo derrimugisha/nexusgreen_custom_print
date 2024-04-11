@@ -26,3 +26,12 @@ class NexusGreenWaterMark(models.Model):
     # Related field to access company logo
     company_logo = fields.Binary(
         related='company_id.logo', string="Company Logo", readonly=True)
+
+    @api.model
+    def create(self, vals):
+        if not vals.get('company_id'):
+            vals['company_id'] = self.env.company.id
+            print("@@@@@@"*12)
+            print(vals)
+            print("@@@@@@"*12)
+        return super(NexusGreenWaterMark, self).create(vals)

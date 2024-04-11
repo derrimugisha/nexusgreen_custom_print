@@ -4,15 +4,30 @@
     <template id="nexusgreen_custom_print.printout" name="nexusgreen_custom_print"
       inherit_id="purchase.report_purchaseorder_document">
       <xpath expr="//div[@class='page']" position="replace">
-        <div class="page">
-          <style> th, td { border: 1px solid #000000 !important; } img { width: 100%; height:100%;
-            object-fit: contain; } .avoid-break { page-break-before: always; } .watermark {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.5;
-            color: #cccccc; font-size: 72px; z-index: -1; } </style>
-          <div class="watermark">
-            <img t-if="o and o.company_id and o.company_id.logo"
-              t-att-src="'data:image/png;base64,%s' % o.company_id.logo" />
+        <div class="page" style="position:relative;">
+          <style> th, td { border: 1px solid #000000 !important; }
+            img { width: 100%;}
+            .sign { width: 100%;
+            height:100%;
+            object-fit: contain; }
+            .watermark {
+            position:transform: translate(-50%, -50%); opacity: 0.9;
+            z-index: -1; }
+          </style>
+          <div>
+            how are you
           </div>
+          <div class="col-12">
+            <t t-if="o.company_logo">
+              <div
+                style="opacity:0.15; font-size:100px;text-align:center;top:500px;position:fixed;z-index:99;">
+                <span style="width:880px;align:center;">
+                  <img t-att-src="image_data_uri(o.company_logo)" width="250" height="200" />
+                </span>
+              </div>
+            </t>
+          </div>
+
           <!-- purchase order ref -->
           <div class="row py-4">
             <div class="col">
@@ -191,234 +206,234 @@
             <p t-field="o.notes" />
             <div class="oe_structure" />
           </div>
-
-          <!-- footer section -->
-          <div class="row">
-            <div class="col-12 border border-dark px-5 avoid-break">
-              <div>
-                <div style="font-weight: 900 !important;">
-                  If you have any questions about this purchase order, please contact
-                </div>
-                <hr class="border-dark" />
-                <div>
-                  Email:.........................................
-                  Or: .......................................
-                </div>
-              </div>
-              <hr class="border-dark" />
-
-              <div class="row">
-
-                <!-- col1 -->
-                <div class="col-4">
-                  <div class="row">
-                    <div class="col-6" style="height: 60px;">
-                      <strong>Created By</strong>
-                    </div>
-                    <div class="col-6" style="height: 60px;">
-                      <span t-esc="o.create_uid.name" />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6" style="height: 80px;">
-                      <strong>Signature:</strong>
-                    </div>
-                    <div class="col-6">
-                      <div style="height: 80px;">
-                        <img t-if="o.create_uid.user_signature"
-                          t-att-src="image_data_uri(o.create_uid.user_signature)" alt="company_cop"
-                          style="width: 100%; height:100%;
-                        object-fit: contain;"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6">
-                      <strong>Date:</strong>
-                    </div>
-                    <div class="col-6">
-                      <span t-field="o.create_date" t-options="{'widget':'date'}" />
-                    </div>
-                  </div>
-                </div>
-                <!-- end of col1 -->
-
-                <!-- col2 -->
-                <div class="col-4">
-                  <div class="row">
-                    <div class="col-6" style="height: 60px;">
-                      <strong>Checked By</strong>
-                    </div>
-                    <div class="col-6" style="height: 60px;">
-                      <span t-esc="o.checked_by.name" />
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6" style="height: 80px;">
-                      <strong>Signature:</strong>
-                    </div>
-                    <div class="col-6">
-                      <div style="height: 80px;">
-                        <t t-if="o.state == 'approved'">
-                          <img t-if="o.checked_by.user_signature"
-                            t-att-src="image_data_uri(o.checked_by.user_signature)"
-                            alt="company_cop"
-                            style="width: 100%; height:100%;
-                        object-fit: contain;" />
-                        </t>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6">
-                      <strong>Date:</strong>
-                    </div>
-                    <div class="col-6">
-                      <t t-if="o.state == 'approved'">
-                        <span
-                          t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')" />
-                      </t>
-                    </div>
-                  </div>
-                </div>
-                <!-- end of col2 -->
-
-                <!-- col3 -->
-                <div class="col-4">
-                  <div class="row">
-                    <div class="col-6" style="height: 60px;">
-                      <strong>Approved By</strong>
-                    </div>
-                    <div class="col-6" style="height: 60px;">
-                      <t t-if="o.state in ['approved','pm','coo','ceo']">
-                        <span t-esc="o.approval_by.name" />
-                      </t>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6" style="height: 80px;">
-                      <strong>Signature:</strong>
-                    </div>
-                    <div class="col-6">
-                      <div style="height: 80px;">
-                        <t t-if="o.state in ['approved','pm','coo','ceo']">
-
-                          <img t-if="o.approval_by.user_signature"
-                            t-att-src="image_data_uri(o.approval_by.user_signature)"
-                            alt="company_cop"
-                            style="width: 100%; height:100%;
-                          object-fit: contain;" />
-                        </t>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6">
-                      <strong>Date:</strong>
-                    </div>
-                    <div class="col-6">
-                      <t t-if="o.state in ['approved','pm','coo','ceo']">
-                        <span t-esc="o.approved_date" />
-                      </t>
-                    </div>
-                  </div>
-                </div>
-                <!-- end of cole -->
-              </div>
-
-              <!-- ####### -->
-              <hr class="border-dark" />
-
-              <div class="row">
-
-                <!-- col1 -->
-                <div class="col-4">
-                  <div class="row">
-                    <div class="col-6">
-                      <strong>Accepted By</strong>
-                    </div>
-                    <div class="col-6">
-                      <!-- <span t-esc="o.create_uid.name" /> -->
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6" style="height: 80px;">
-                      <strong>Signature:</strong>
-                    </div>
-                    <div class="col-6">
-                      <div style="height: 80px;">
-                        <!-- <img t-if="o.create_uid.user_signature"
-                          t-att-src="image_data_uri(o.create_uid.user_signature)" alt="company_cop"
-                          style="width: 100%; height:100%;
-                        object-fit: contain;"
-                        /> -->
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6">
-                      <strong>Date:</strong>
-                    </div>
-                    <div class="col-6">
-                      <!-- <span t-field="o.create_date" t-options="{'widget':'date'}" /> -->
-                    </div>
-                  </div>
-                </div>
-                <!-- end of col1 -->
-
-                <!-- col2 -->
-                <div class="col-6">
-                  <div class="row">
-                    <div class="col-6">
-                      <strong>Authorised by CFO</strong>
-                    </div>
-                    <div class="col-6">
-                      <t t-if="o.state in ['approved']">
-                        <span t-esc="o.ceo.name" />
-                      </t>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6" style="height: 80px;">
-                      <strong>Signature:</strong>
-                    </div>
-                    <div class="col-6">
-                      <t t-if="o.state == 'approved'">
-                        <div style="height: 80px;">
-                          <t t-if="o.state == 'approved' and o.require_ceo">
-                            <img t-if="o.ceo.user_signature"
-                              t-att-src="image_data_uri(o.ceo.user_signature)"
-                              alt="company_cop" class="img-fluid" />
-                          </t>
-                        </div>
-                      </t>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6">
-                      <strong>Date:</strong>
-                    </div>
-                    <div class="col-6">
-                      <t t-if="o.state == 'approved' and o.require_ceo">
-                        <span t-esc="o.ceo_approval_date" />
-                      </t>
-                    </div>
-                  </div>
-                </div>
-                <!-- end of col2 -->
-
-                <!-- col3 -->
-                <div class="col-2">
-
-                </div>
-                <!-- end of cole -->
-              </div>
-
-            </div>
-          </div>
-          <!-- end of footer section -->
         </div>
+
+        <!-- footer section -->
+        <div class="row">
+          <div class="col-12 border border-dark px-5 avoid-break">
+            <div>
+              <div style="font-weight: 900 !important;">
+                If you have any questions about this purchase order, please contact
+              </div>
+              <hr class="border-dark" />
+              <div>
+                Email:.........................................
+                Or: .......................................
+              </div>
+            </div>
+            <hr class="border-dark" />
+
+            <div class="row">
+
+              <!-- col1 -->
+              <div class="col-4">
+                <div class="row">
+                  <div class="col-6" style="height: 60px;">
+                    <strong>Created By</strong>
+                  </div>
+                  <div class="col-6" style="height: 60px;">
+                    <span t-esc="o.create_uid.name" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6" style="height: 80px;">
+                    <strong>Signature:</strong>
+                  </div>
+                  <div class="col-6">
+                    <div style="height: 80px;">
+                      <img t-if="o.create_uid.user_signature"
+                        t-att-src="image_data_uri(o.create_uid.user_signature)" alt="company_cop"
+                        style="width: 100%; height:100%;
+                      object-fit: contain;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <strong>Date:</strong>
+                  </div>
+                  <div class="col-6">
+                    <span t-field="o.create_date" t-options="{'widget':'date'}" />
+                  </div>
+                </div>
+              </div>
+              <!-- end of col1 -->
+
+              <!-- col2 -->
+              <div class="col-4">
+                <div class="row">
+                  <div class="col-6" style="height: 60px;">
+                    <strong>Checked By</strong>
+                  </div>
+                  <div class="col-6" style="height: 60px;">
+                    <span t-esc="o.checked_by.name" />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6" style="height: 80px;">
+                    <strong>Signature:</strong>
+                  </div>
+                  <div class="col-6">
+                    <div style="height: 80px;">
+                      <t t-if="o.state == 'approved'">
+                        <img t-if="o.checked_by.user_signature"
+                          t-att-src="image_data_uri(o.checked_by.user_signature)"
+                          alt="company_cop"
+                          style="width: 100%; height:100%;
+                      object-fit: contain;" />
+                      </t>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <strong>Date:</strong>
+                  </div>
+                  <div class="col-6">
+                    <t t-if="o.state == 'approved'">
+                      <span
+                        t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')" />
+                    </t>
+                  </div>
+                </div>
+              </div>
+              <!-- end of col2 -->
+
+              <!-- col3 -->
+              <div class="col-4">
+                <div class="row">
+                  <div class="col-6" style="height: 60px;">
+                    <strong>Approved By</strong>
+                  </div>
+                  <div class="col-6" style="height: 60px;">
+                    <t t-if="o.state in ['approved','pm','coo','ceo']">
+                      <span t-esc="o.approval_by.name" />
+                    </t>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6" style="height: 80px;">
+                    <strong>Signature:</strong>
+                  </div>
+                  <div class="col-6">
+                    <div style="height: 80px;">
+                      <t t-if="o.state in ['approved','pm','coo','ceo']">
+
+                        <img t-if="o.approval_by.user_signature"
+                          t-att-src="image_data_uri(o.approval_by.user_signature)"
+                          alt="company_cop"
+                          style="width: 100%; height:100%;
+                        object-fit: contain;" />
+                      </t>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <strong>Date:</strong>
+                  </div>
+                  <div class="col-6">
+                    <t t-if="o.state in ['approved','pm','coo','ceo']">
+                      <span t-esc="o.approved_date" />
+                    </t>
+                  </div>
+                </div>
+              </div>
+              <!-- end of cole -->
+            </div>
+
+            <!-- ####### -->
+            <hr class="border-dark" />
+
+            <div class="row">
+
+              <!-- col1 -->
+              <div class="col-4">
+                <div class="row">
+                  <div class="col-6">
+                    <strong>Accepted By</strong>
+                  </div>
+                  <div class="col-6">
+                    <!-- <span t-esc="o.create_uid.name" /> -->
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6" style="height: 80px;">
+                    <strong>Signature:</strong>
+                  </div>
+                  <div class="col-6">
+                    <div style="height: 80px;">
+                      <!-- <img t-if="o.create_uid.user_signature"
+                        t-att-src="image_data_uri(o.create_uid.user_signature)" alt="company_cop"
+                        style="width: 100%; height:100%;
+                      object-fit: contain;"
+                      /> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <strong>Date:</strong>
+                  </div>
+                  <div class="col-6">
+                    <!-- <span t-field="o.create_date" t-options="{'widget':'date'}" /> -->
+                  </div>
+                </div>
+              </div>
+              <!-- end of col1 -->
+
+              <!-- col2 -->
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-6">
+                    <strong>Authorised by CFO</strong>
+                  </div>
+                  <div class="col-6">
+                    <t t-if="o.state in ['approved']">
+                      <span t-esc="o.ceo.name" />
+                    </t>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6" style="height: 80px;">
+                    <strong>Signature:</strong>
+                  </div>
+                  <div class="col-6">
+                    <t t-if="o.state == 'approved'">
+                      <div style="height: 80px;">
+                        <t t-if="o.state == 'approved' and o.require_ceo">
+                          <img t-if="o.ceo.user_signature"
+                            t-att-src="image_data_uri(o.ceo.user_signature)"
+                            alt="company_cop" class="sign" />
+                        </t>
+                      </div>
+                    </t>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <strong>Date:</strong>
+                  </div>
+                  <div class="col-6">
+                    <t t-if="o.state == 'approved' and o.require_ceo">
+                      <span t-esc="o.ceo_approval_date" />
+                    </t>
+                  </div>
+                </div>
+              </div>
+              <!-- end of col2 -->
+
+              <!-- col3 -->
+              <div class="col-2">
+
+              </div>
+              <!-- end of cole -->
+            </div>
+
+          </div>
+        </div>
+        <!-- end of footer section -->
 
         <div class="footer">
           <div>
