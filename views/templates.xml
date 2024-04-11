@@ -14,10 +14,7 @@
             position:transform: translate(-50%, -50%); opacity: 0.9;
             z-index: -1; }
           </style>
-          <div>
-            how are you
-          </div>
-          <div class="col-12">
+          <div class="col-12 d-flex justify-content-center">
             <t t-if="o.company_logo">
               <div
                 style="opacity:0.15; font-size:100px;text-align:center;top:500px;position:fixed;z-index:99;">
