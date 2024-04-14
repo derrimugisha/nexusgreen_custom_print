@@ -213,9 +213,7 @@
                 If you have any questions about this purchase order, please contact
               </div>
               <hr class="border-dark" />
-              <div>
-                Email:.........................................
-                Or: .......................................
+              <div> Email:<t t-esc="o.company_id.email" /> Phone: <t t-esc="o.company_id.phone" />
               </div>
             </div>
             <hr class="border-dark" />
