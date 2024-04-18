@@ -30,9 +30,7 @@
               </div> -->
               <div
                 class="watermark">
-                <span style="">
-                  <img t-att-src="image_data_uri(o.company_logo)" />
-                </span>
+                <img t-att-src="image_data_uri(o.company_logo)" />
               </div>
             </t>
           </div>
