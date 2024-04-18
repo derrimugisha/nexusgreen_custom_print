@@ -16,8 +16,8 @@
             <t t-if="o.company_logo">
               <div
                 style="opacity:0.15; font-size:100px;text-align:center;top:500px;left:250px;position:fixed;z-index:99;">
-                <span style="width:880px;align:center; background-color:red;">
-                  <img t-att-src="image_data_uri(o.company_logo)" width="880px" />
+                <span style="width:990px;align:center; background-color:red;">
+                  <img t-att-src="image_data_uri(o.company_logo)" width="990px" />
                 </span>
               </div>
             </t>
