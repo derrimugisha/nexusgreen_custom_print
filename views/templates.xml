@@ -5,19 +5,9 @@
       inherit_id="purchase.report_purchaseorder_document">
       <xpath expr="//div[@class='page']" position="replace">
         <div class="page" style="position:relative;">
-          <style> th, td { border: 1px solid #000000 !important; }
-            img { width: 100%;}
-            .sign { width: 100%;
-            height:100%;
-            object-fit: contain; }
-            .watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            <!-- transform: translate(-50%, -50%); -->
-            opacity: 0.5; /* Adjust the opacity as needed */
-            }
-          </style>
+          <style> th, td { border: 1px solid #000000 !important; } img { width: 100%;} .sign {
+            width: 100%; height:100%; object-fit: contain; } .watermark { position: fixed;
+            z-index:99; top: 50%; left: 50%; <!-- transform: translate(-50%, -50%); --> opacity: 0.5; /* Adjust the opacity as needed */ } </style>
           <!-- water mark -->
           <div class="col-12 d-flex justify-content-center">
             <t t-if="o.company_logo">
@@ -30,7 +20,7 @@
               </div> -->
               <div
                 class="watermark">
-                <img t-att-src="image_data_uri(o.company_logo)" width="600"/>
+                <img t-att-src="image_data_uri(o.company_logo)" width="600" height="500" />
               </div>
             </t>
           </div>
