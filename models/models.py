@@ -51,7 +51,7 @@ class IsCallOffReturner(models.Model):
             'name': 'Call Off Orders',
             # 'view_type': 'tree,form',
             'view_mode': 'tree,form',
-            'domain': [('project_id', '=', self.id)],
+            'domain': [('project_id', '=', self.id), ('call_off_order', '=', True)],
             'res_model': 'purchase.order',
             'context': context,
             'type': 'ir.actions.act_window',
