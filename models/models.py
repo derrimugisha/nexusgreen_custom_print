@@ -57,3 +57,10 @@ class IsCallOffReturner(models.Model):
             'type': 'ir.actions.act_window',
             'target': 'current',
         }
+
+    @api.depends("call_off_orders")
+    def _compute_call_off_order_no(self):
+        for rec in self:
+            true_count = sum(
+                order.call_off_order for order in rec.call_off_orders if order.call_off_order)
+            rec.call_off_order_no = true_count
