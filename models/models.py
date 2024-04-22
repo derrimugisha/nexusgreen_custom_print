@@ -40,15 +40,18 @@ class NexusGreenWaterMark(models.Model):
 class IsCallOffReturner(models.Model):
     _inherit = "project.project"
 
+    call_off_order = fields.Boolean("Call Off Order", defaults=False)
+
     def open_call_off_orders(self):
         # form_id = self.env['ir.model.data'].get_object_reference('purchase', 'purchase_order_form')[1]
         context = dict(self._context or {})
         context['default_project_id'] = self.id
+        print("")
         return {
             'name': 'Call Off Orders',
             # 'view_type': 'tree,form',
             'view_mode': 'tree,form',
-            'domain': [],
+            'domain': [('project_id', '=', self.id)],
             'res_model': 'purchase.order',
             'context': context,
             'type': 'ir.actions.act_window',
