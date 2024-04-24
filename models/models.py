@@ -37,30 +37,30 @@ class NexusGreenWaterMark(models.Model):
         return super(NexusGreenWaterMark, self).create(vals)
 
 
-class IsCallOffReturner(models.Model):
-    _inherit = "project.project"
+# class IsCallOffReturner(models.Model):
+#     _inherit = "project.project"
 
-    call_off_order = fields.Boolean("Call Off Order", defaults=False)
+    # call_off_order = fields.Boolean("Call Off Order", defaults=False)
 
-    def open_call_off_orders(self):
-        # form_id = self.env['ir.model.data'].get_object_reference('purchase', 'purchase_order_form')[1]
-        context = dict(self._context or {})
-        context['default_project_id'] = self.id
-        print("")
-        return {
-            'name': 'Call Off Orders',
-            # 'view_type': 'tree,form',
-            'view_mode': 'tree,form',
-            'domain': [('project_id', '=', self.id), ('call_off_order', '=', True)],
-            'res_model': 'purchase.order',
-            'context': context,
-            'type': 'ir.actions.act_window',
-            'target': 'current',
-        }
+    # def open_call_off_orders(self):
+    #     # form_id = self.env['ir.model.data'].get_object_reference('purchase', 'purchase_order_form')[1]
+    #     context = dict(self._context or {})
+    #     context['default_project_id'] = self.id
+    #     print("")
+    #     return {
+    #         'name': 'Call Off Orders',
+    #         # 'view_type': 'tree,form',
+    #         'view_mode': 'tree,form',
+    #         'domain': [('project_id', '=', self.id), ('call_off_order', '=', True)],
+    #         'res_model': 'purchase.order',
+    #         'context': context,
+    #         'type': 'ir.actions.act_window',
+    #         'target': 'current',
+    #     }
 
-    @api.depends("call_off_orders")
-    def _compute_call_off_order_no(self):
-        for rec in self:
-            true_count = sum(
-                order.call_off_order for order in rec.call_off_orders if order.call_off_order)
-            rec.call_off_order_no = true_count
+    # @api.depends("call_off_orders")
+    # def _compute_call_off_order_no(self):
+    #     for rec in self:
+    #         true_count = sum(
+    #             order.call_off_order for order in rec.call_off_orders if order.call_off_order)
+    #         rec.call_off_order_no = true_count
