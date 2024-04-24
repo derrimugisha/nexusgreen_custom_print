@@ -206,7 +206,7 @@
         </div>
 
         <!-- footer section -->
-        <div style="page-breake-inside: avoid">
+        <div style="position:absolute;top:850px; page-break-inside: avoid;">
           <div class="row">
             <div class="col-12 border border-dark px-5">
               <div>
