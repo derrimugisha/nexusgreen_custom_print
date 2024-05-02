@@ -5,11 +5,8 @@
       <field name="model">purchase.order</field>
       <field name="inherit_id" ref="project_status.purchase_orders_addition2" />
       <field name="arch" type="xml">
-        <xpath expr="//group/group/field[@name='partner_ref']" position="after">
-          <field name="procument_officer" attrs="{'invisible': [('call_off_order','=',True)]}" />
-          <field name="procument_officer2" invisible="1" />
-          <field name="approver" invisible="1" />
-          <field name="invoice_status" invisible="1" />
+        <xpath expr="//data" position="replace">
+
         </xpath>
       </field>
     </record>
