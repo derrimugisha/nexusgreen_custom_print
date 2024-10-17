@@ -50,9 +50,10 @@
                                                 <!-- <h6>EVERYTHING SOLAR</h6> -->
                                             </div>
                                             <div class="col-4 mb-2" />
-                                            <div class="col-4 mb-2" style="padding-top:20px;">
+                                            <div class="col-4 mb-2"
+                                                style="padding-top:20px; position:relative;">
                                                 <h2 class="nexus-green-color"
-                                                    style="font-size: 50px; font-weight:bold;">
+                                                    style="font-size: 50px; font-weight:bold; position:absolute; top:50%;">
                                                     PAYSLIP</h2>
                                             </div>
                                         </div>
