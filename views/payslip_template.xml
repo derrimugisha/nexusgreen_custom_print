@@ -210,7 +210,7 @@
                                         <div class="col-2 text-end">
                                             <span
                                                 t-esc="sum(o.line_ids.filtered(lambda l: l.category_id.code in ['BASIC', 'ALW']).mapped('total'))"
-                                                t-options='{"widget": "monetary", "display_currency": false, "precision": 1}'
+                                                t-options-precision="1"
                                             />
                                         </div>
                                     </div>
@@ -268,7 +268,7 @@
                                             <div class="col-2 bg-dark text-light text-end">
                                                 <!-- <span t-field="net.total" /> -->
                                                 <span t-field="net.total"
-                                                    t-options='{"widget": "monetary", "display_currency": false, "precision": 1}' />
+                                                    t-options-precision="1" />
                                             </div>
                                         </div>
                                         <!-- end of netpay section -->
