@@ -141,20 +141,28 @@
                                     <div class="row mt-4">
                                         <div class="col-12">
                                             <!-- header row -->
-                                            <div class="row nexus-gray fw-bolder text-capitalize">
-                                                <div class="col border border-bottom-0 border-light">
-                                                    Earnings
-                                                </div>
+                                            <span t-foreach="o.worked_days_line_ids"
+                                                t-as="worked_days">
                                                 <div
-                                                    class="col border border-bottom-0 border-light fw-normal">
-                                                    Days Worked
+                                                    class="row nexus-gray fw-bolder text-capitalize">
+                                                    <div
+                                                        class="col border border-bottom-0 border-light">
+                                                        Earnings
+                                                    </div>
+                                                    <div
+                                                        class="col border border-bottom-0 border-light fw-normal">
+                                                        Days Worked
+                                                    </div>
+                                                    <div
+                                                        class="col border border-bottom-0 border-light">
+                                                        <span t-field="worked_days.number_of_days" />
+                                                    </div>
+                                                    <div
+                                                        class="col border border-bottom-0 border-light"></div>
+                                                    <div
+                                                        class="col border border-bottom-0 border-light"></div>
                                                 </div>
-                                                <div class="col border border-bottom-0 border-light">
-                                                    <span t-field="worked_days.number_of_days" />
-                                                </div>
-                                                <div class="col border border-bottom-0 border-light"></div>
-                                                <div class="col border border-bottom-0 border-light"></div>
-                                            </div>
+                                            </span>
                                             <!-- end of header row -->
                                             <t
                                                 t-foreach="o.line_ids.filtered(lambda x: x.total &gt; 0 and x.code != 'NET')"
