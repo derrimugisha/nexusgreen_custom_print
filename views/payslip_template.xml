@@ -103,37 +103,42 @@
                                         <div class="col-12">
                                             <!-- header row -->
                                             <div class="row nexus-green fw-bolder text-capitalize">
-                                                <div class="col border border-bottom-0 border-light">
+                                                <div
+                                                    class="col-3 border border-bottom-0 border-light">
                                                     Designation
                                                 </div>
-                                                <div class="col border border-bottom-0 border-light">
+                                                <div
+                                                    class="col-3 border border-bottom-0 border-light">
                                                     Tin</div>
-                                                <div class="col border border-bottom-0 border-light">
+                                                <div
+                                                    class="col-2 border border-bottom-0 border-light">
                                                     NSSF number
                                                 </div>
-                                                <div class="col border border-bottom-0 border-light">
+                                                <div
+                                                    class="col-2 border border-bottom-0 border-light">
                                                     Account Number
                                                 </div>
-                                                <div class="col border border-bottom-0 border-light">
+                                                <div
+                                                    class="col-2 border border-bottom-0 border-light">
                                                     Bank</div>
                                             </div>
                                             <!-- end of header row -->
 
                                             <!-- column section2 -->
                                             <div class="row">
-                                                <div class="col nexus-gray">
+                                                <div class="col-3 nexus-gray">
                                                     <t t-esc="o.employee_id.job_title" />
                                                 </div>
-                                                <div class="col nexus-gray">
+                                                <div class="col-3 nexus-gray">
                                                     <t t-esc="o.employee_id.tin" />
                                                 </div>
-                                                <div class="col nexus-gray">
+                                                <div class="col-2 nexus-gray">
                                                     <t t-esc="o.employee_id.nssf" />
                                                 </div>
-                                                <div class="col nexus-gray">
+                                                <div class="col-2 nexus-gray">
                                                     <!-- <t t-esc="o.employee_id.bank_account_id"/> -->
                                                 </div>
-                                                <div class="col nexus-gray">
+                                                <div class="col-2 nexus-gray">
                                                     <t t-esc="o.employee_id.bank_name" />
                                                 </div>
                                             </div>
@@ -151,21 +156,21 @@
                                                 <div
                                                     class="row nexus-gray fw-bolder text-capitalize">
                                                     <div
-                                                        class="col border border-bottom-0 border-light">
+                                                        class="col-3 border border-bottom-0 border-light">
                                                         Earnings
                                                     </div>
                                                     <div
-                                                        class="col border border-bottom-0 border-light fw-normal">
+                                                        class="col-3 border border-bottom-0 border-light fw-normal">
                                                         Days Worked
                                                     </div>
                                                     <div
-                                                        class="col border border-bottom-0 border-light">
+                                                        class="col-2 border border-bottom-0 border-light">
                                                         <span t-field="worked_days.number_of_days" />
                                                     </div>
                                                     <div
-                                                        class="col border border-bottom-0 border-light"></div>
+                                                        class="col-2 border border-bottom-0 border-light"></div>
                                                     <div
-                                                        class="col border border-bottom-0 border-light"></div>
+                                                        class="col-2 border border-bottom-0 border-light"></div>
                                                 </div>
                                             </span>
                                             <!-- end of header row -->
@@ -174,13 +179,13 @@
                                                 t-as="line">
                                                 <!-- column -->
                                                 <div class="row">
-                                                    <div class="col">
+                                                    <div class="col-3">
                                                         <span t-field="line.name" />
                                                     </div>
-                                                    <div class="col"></div>
-                                                    <div class="col"></div>
-                                                    <div class="col"></div>
-                                                    <div class="col">
+                                                    <div class="col-3"></div>
+                                                    <div class="col-2"></div>
+                                                    <div class="col-2"></div>
+                                                    <div class="col-2">
                                                         -
                                                     </div>
                                                 </div>
@@ -192,11 +197,11 @@
 
                                     <!-- gross pay section -->
                                     <div class="row border-bottom border-3 border-top nexus-border">
-                                        <div class="col fw-bolder">Gross Pay</div>
-                                        <div class="col"></div>
-                                        <div class="col"></div>
-                                        <div class="col"></div>
-                                        <div class="col text-end">
+                                        <div class="col-3 fw-bolder">Gross Pay</div>
+                                        <div class="col-3"></div>
+                                        <div class="col-2"></div>
+                                        <div class="col-2"></div>
+                                        <div class="col-2 text-end">
                                             <span
                                                 t-esc="sum(o.line_ids.filtered(lambda l: l.category_id.code in ['BASIC', 'ALW']).mapped('total'))"
                                                 t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}' />
@@ -207,11 +212,11 @@
                                     <!-- deductions -->
                                     <!-- header section -->
                                     <div class="row nexus-gray">
-                                        <div class="col fw-bolder">Deductions</div>
-                                        <div class="col"></div>
-                                        <div class="col"></div>
-                                        <div class="col"></div>
-                                        <div class="col"></div>
+                                        <div class="col-3 fw-bolder">Deductions</div>
+                                        <div class="col-3"></div>
+                                        <div class="col-2"></div>
+                                        <div class="col-2"></div>
+                                        <div class="col-2"></div>
                                     </div>
                                     <!-- end of header section -->
 
@@ -219,13 +224,13 @@
                                         t-as="ln">
                                         <!-- column -->
                                         <div class="row">
-                                            <div class="col">
+                                            <div class="col-3">
                                                 <span t-field="ln.name" />
                                             </div>
-                                            <div class="col"></div>
-                                            <div class="col"></div>
-                                            <div class="col"></div>
-                                            <div class="col">-</div>
+                                            <div class="col-3"></div>
+                                            <div class="col-2"></div>
+                                            <div class="col-2"></div>
+                                            <div class="col-2">-</div>
                                         </div>
                                         <!-- end of column -->
                                     </t>
@@ -233,11 +238,11 @@
 
                                     <!-- total deductions -->
                                     <div class="row border-top border-bottom nexus-border border-3">
-                                        <div class="col fw-bolder">Total Deductions</div>
-                                        <div class="col"></div>
-                                        <div class="col"></div>
-                                        <div class="col"></div>
-                                        <div class="col text-end">
+                                        <div class="col-3 fw-bolder">Total Deductions</div>
+                                        <div class="col-3"></div>
+                                        <div class="col-2"></div>
+                                        <div class="col-2"></div>
+                                        <div class="col-2 text-end">
                                             <span t-field="o.deductions" />
                                         </div>
                                     </div>
@@ -248,11 +253,11 @@
                                         t-as="net">
                                         <!-- netpay section -->
                                         <div class="row mt-4 border-top border-bottom border-3">
-                                            <div class="col fw-bolder">NET PAY</div>
-                                            <div class="col"></div>
-                                            <div class="col"></div>
-                                            <div class="col"></div>
-                                            <div class="col bg-dark text-light text-end">-</div>
+                                            <div class="col-3 fw-bolder">NET PAY</div>
+                                            <div class="col-3"></div>
+                                            <div class="col-2"></div>
+                                            <div class="col-2"></div>
+                                            <div class="col-2 bg-dark text-light text-end">-</div>
                                         </div>
                                         <!-- end of netpay section -->
                                     </t>
