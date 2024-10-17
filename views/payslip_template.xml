@@ -209,7 +209,7 @@
                                         <div class="col-2"></div>
                                         <div class="col-2 text-end">
                                             <span
-                                                t-esc="formatDecimal(sum(o.line_ids.filtered(lambda l: l.category_id.code in ['BASIC', 'ALW']).mapped('total')), 1)"
+                                                t-esc="sum(o.line_ids.filtered(lambda l: l.category_id.code in ['BASIC', 'ALW']).mapped('total'))"
                                                 t-options='{"widget": "monetary"}' />
                                         </div>
                                     </div>
