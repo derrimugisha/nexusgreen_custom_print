@@ -266,7 +266,6 @@
                                             <div class="col-2"></div>
                                             <div class="col-2 bg-dark text-light text-end">
                                                 <span t-field="net.total"
-                                                    t-options='{"widget": "monetary"}'
                                                     t-esc="formatDecimal(net.total, 1)" />
 
                                             </div>
