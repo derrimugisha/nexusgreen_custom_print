@@ -209,9 +209,7 @@
                                         <div class="col-2"></div>
                                         <div class="col-2 text-end">
                                             <span
-                                                t-esc="sum(o.line_ids.filtered(lambda l: l.category_id.code in ['BASIC', 'ALW']).mapped('total'))"
-                                                t-options-precision="1"
-                                            />
+                                                t-esc="'{:.1f}'.format(sum(o.line_ids.filtered(lambda l: l.category_id.code in ['BASIC', 'ALW']).mapped('total')))" />
                                         </div>
                                     </div>
                                     <!-- end of gross pay section -->
@@ -267,8 +265,7 @@
                                             <div class="col-2"></div>
                                             <div class="col-2 bg-dark text-light text-end">
                                                 <!-- <span t-field="net.total" /> -->
-                                                <span t-field="net.total"
-                                                    t-options-precision="1" />
+                                                <span t-field="net.total" />
                                             </div>
                                         </div>
                                         <!-- end of netpay section -->
