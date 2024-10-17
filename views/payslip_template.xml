@@ -31,7 +31,7 @@
                             .image-box {
                             width: 160px !important;
                             height: 160px !important;
-                            background-color: antiquewhite;
+
                             }
                         </style>
 
@@ -210,7 +210,7 @@
                                         <div class="col-2 text-end">
                                             <span
                                                 t-esc="sum(o.line_ids.filtered(lambda l: l.category_id.code in ['BASIC', 'ALW']).mapped('total'))"
-                                                t-options='{"widget": "monetary"}' />
+                                            />
                                         </div>
                                     </div>
                                     <!-- end of gross pay section -->
