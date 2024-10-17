@@ -52,7 +52,7 @@
                                             <div class="col-4 mb-2" />
                                             <div class="col-4 mb-2" style="padding-top:20px;">
                                                 <h2 class="nexus-green-color"
-                                                    style="font-size: 20px; font-weight:bold;">
+                                                    style="font-size: 50px; font-weight:bold;">
                                                     PAYSLIP</h2>
                                             </div>
                                         </div>
@@ -208,9 +208,12 @@
                                         <div class="col-2"></div>
                                         <div class="col-2"></div>
                                         <div class="col-2 text-end">
+                                            <!-- <span
+                                                t-esc="sum(o.line_ids.filtered(lambda l: l.category_id.code in ['BASIC', 'ALW']).mapped('total'))"
+                                                t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}' /> -->
                                             <span
                                                 t-esc="sum(o.line_ids.filtered(lambda l: l.category_id.code in ['BASIC', 'ALW']).mapped('total'))"
-                                                t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}' />
+                                            />
                                         </div>
                                     </div>
                                     <!-- end of gross pay section -->
@@ -258,12 +261,15 @@
                                         t-foreach="o.line_ids.filtered(lambda x:  x.total &gt; 0 and x.code == 'NET')"
                                         t-as="net">
                                         <!-- netpay section -->
-                                        <div class="row mt-4 border-top border-bottom border-3">
+                                        <div
+                                            class="row mt-4 border-top border-bottom border-3 nexus-gray">
                                             <div class="col-3 fw-bolder">NET PAY</div>
                                             <div class="col-3"></div>
                                             <div class="col-2"></div>
                                             <div class="col-2"></div>
-                                            <div class="col-2 bg-dark text-light text-end">-</div>
+                                            <div class="col-2 bg-dark text-light text-end">
+                                                <span t-field="net.total" />
+                                            </div>
                                         </div>
                                         <!-- end of netpay section -->
                                     </t>
@@ -272,9 +278,12 @@
                                     <div class="row d-flex align-items-center my-4">
                                         <div class="col-6 text-center">
                                             <div class="image-box">
+                                                <!-- <img t-if="o.create_uid"
+                                                    t-att-src="image_data_uri(o.create_uid.user_signature)"
+                                                    alt="Signature" style="width:50%;height:150px;" /> -->
                                                 <img t-if="o.create_uid"
                                                     t-att-src="image_data_uri(o.create_uid.user_signature)"
-                                                    alt="Signature" style="width:50%;height:150px;" />
+                                                    alt="Signature" class="img-fluid" />
                                             </div>
                                         </div>
                                         <div class="col-6">
