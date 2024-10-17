@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<templates xml:space="preserve">
+    <t t-name="nexusgreen_custom_print.payslip_print" t-inherit="nexus_hr.nexus_hr_paslip_new" t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('some-class')]" position="inside">
+            <p>Your new content here</p>
+        </xpath>
+    </t>
+</templates>
