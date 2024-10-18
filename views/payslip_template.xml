@@ -38,10 +38,13 @@
                             height: 160px !important;
 
                             }
+                            .overflow{
+                            overflow: hidden;
+                            }
                         </style>
 
                         <!-- main container -->
-                        <div class="container p-5 nexus-gray">
+                        <div class="container p-5 nexus-gray overflow">
                             <div class="row bg-white">
                                 <div class="col-12">
                                     <!-- header section -->
