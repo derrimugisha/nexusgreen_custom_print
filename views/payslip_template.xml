@@ -182,7 +182,7 @@
                                             </span>
                                             <!-- end of header row -->
                                             <t
-                                                t-foreach="o.line_ids.filtered(lambda x: x.total &gt; 0 and x.code != 'NET')"
+                                                t-foreach="o.line_ids.filtered(lambda x: x.total > 0 and x.code not in ['NET', 'GROSS'])"
                                                 t-as="line">
                                                 <!-- column -->
                                                 <div class="row">
@@ -193,7 +193,7 @@
                                                     <div class="col-2"></div>
                                                     <div class="col-2"></div>
                                                     <div class="col-2">
-                                                        -
+                                                        <span t-field="line.total" />
                                                     </div>
                                                 </div>
                                                 <!-- end of column -->
@@ -236,7 +236,9 @@
                                             <div class="col-3"></div>
                                             <div class="col-2"></div>
                                             <div class="col-2"></div>
-                                            <div class="col-2">-</div>
+                                            <div class="col-2">
+                                                <span t-field="ln.name" />
+                                            </div>
                                         </div>
                                         <!-- end of column -->
                                     </t>
@@ -297,6 +299,19 @@
                                         <div class="col-6">DATE</div>
                                     </div>
                                     <!-- end of signature section -->
+
+                                    <div class="row">
+                                        <div class="col-2"></div>
+                                        <div class="col-8">
+                                            <p>
+                                                <strong>If you have any questions about this
+                                                    payslip, please
+                                                    contact:</strong>
+                                            <br /> [Prossy Namirembe, +256
+                                                (0) 700500283, prossy.namirembe@nexusgreen.com] </p>
+                                        </div>
+                                        <div class="col-2"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
