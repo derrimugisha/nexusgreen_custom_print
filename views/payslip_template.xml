@@ -104,227 +104,238 @@
                                                 <div class="col-3 nexus-gray">
                                                     <t t-esc="o.employee_id.department_id.name" />
                                                 </div>
-                                                <div class="col-2 nexus-gray"></div>
-                                                <div class="col-2 nexus-gray"></div>
-                                                <div class="col-2 nexus-gray"></div>
-                                            </div>
-                                            <!-- column section -->
-                                        </div>
-                                    </div>
-                                    <!-- end of intro section -->
-
-                                    <!-- intro section2 -->
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <!-- header row -->
-                                            <div class="row nexus-green fw-bolder text-capitalize">
-                                                <div
-                                                    class="col-3 border border-bottom-0 border-light">
-                                                    Designation
-                                                </div>
-                                                <div
-                                                    class="col-3 border border-bottom-0 border-light">
-                                                    Tin</div>
-                                                <div
-                                                    class="col-2 border border-bottom-0 border-light">
-                                                    NSSF number
-                                                </div>
-                                                <div
-                                                    class="col-2 border border-bottom-0 border-light">
-                                                    Account Number
-                                                </div>
-                                                <div
-                                                    class="col-2 border border-bottom-0 border-light">
-                                                    Bank</div>
-                                            </div>
-                                            <!-- end of header row -->
-
-                                            <!-- column section2 -->
-                                            <div class="row">
-                                                <div class="col-3 nexus-gray">
-                                                    <t t-esc="o.employee_id.job_title" />
-                                                </div>
-                                                <div class="col-3 nexus-gray">
-                                                    <t t-esc="o.employee_id.tin" />
-                                                </div>
-                                                <div class="col-2 nexus-gray fit-text">
-                                                    <t t-esc="o.employee_id.nssf" />
+                                                <div class="col-2 nexus-gray">
+                                                    <span t-field="o.date_from"
+                                                        t-options='{"format": "MMMM"}'
+                                                    />
                                                 </div>
                                                 <div class="col-2 nexus-gray">
-                                                    <!-- <t t-esc="o.employee_id.bank_account_id"/> -->
+                                                    <span t-field="o.date_from"
+                                                        t-options='{"format": "YYYY"}'
+                                                    />
                                                 </div>
-                                                <div class="col-2 nexus-gray">
-                                                    <t t-esc="o.employee_id.bank_name" />
-                                                </div>
                                             </div>
-                                            <!-- column section2 -->
-                                        </div>
-                                    </div>
-                                    <!-- end of intro section2 -->
-
-                                    <!-- earnings section -->
-                                    <div class="row mt-4">
-                                        <div class="col-12">
-                                            <!-- header row -->
-                                            <span t-foreach="o.worked_days_line_ids"
-                                                t-as="worked_days">
-                                                <div
-                                                    class="row nexus-gray fw-bolder text-capitalize">
-                                                    <div
-                                                        class="col-3 border border-bottom-0 border-light">
-                                                        Earnings
-                                                    </div>
-                                                    <div
-                                                        class="col-3 border border-bottom-0 border-light fw-normal">
-                                                        Days Worked
-                                                    </div>
-                                                    <div
-                                                        class="col-2 border border-bottom-0 border-light">
-                                                        <span t-field="worked_days.number_of_days" />
-                                                    </div>
-                                                    <div
-                                                        class="col-2 border border-bottom-0 border-light"></div>
-                                                    <div
-                                                        class="col-2 border border-bottom-0 border-light"></div>
-                                                </div>
-                                            </span>
-                                            <!-- end of header row -->
-                                            <t
-                                                t-foreach="o.line_ids.filtered(lambda x: x.total > 0 and x.code not in ['NET', 'GROSS'])"
-                                                t-as="line">
-                                                <!-- column -->
-                                                <div class="row">
-                                                    <div class="col-3">
-                                                        <span t-field="line.name" />
-                                                    </div>
-                                                    <div class="col-3"></div>
-                                                    <div class="col-2"></div>
-                                                    <div class="col-2"></div>
-                                                    <div class="col-2">
-                                                        <span t-field="line.total" />
-                                                    </div>
-                                                </div>
-                                                <!-- end of column -->
-                                            </t>
-                                        </div>
-                                    </div>
-                                    <!-- end of earnings section -->
-
-                                    <!-- gross pay section -->
-                                    <div class="row border-bottom border-3 border-top nexus-border">
-                                        <div class="col-3 fw-bolder">Gross Pay</div>
-                                        <div class="col-3"></div>
-                                        <div class="col-2"></div>
-                                        <div class="col-2"></div>
-                                        <div class="col-2 text-end">
-                                            <span
-                                                t-esc="'{:.1f}'.format(sum(o.line_ids.filtered(lambda l: l.category_id.code in ['BASIC', 'ALW']).mapped('total')))" />
-                                        </div>
-                                    </div>
-                                    <!-- end of gross pay section -->
-
-                                    <!-- deductions -->
-                                    <!-- header section -->
-                                    <div class="row nexus-gray">
-                                        <div class="col-3 fw-bolder">Deductions</div>
-                                        <div class="col-3"></div>
-                                        <div class="col-2"></div>
-                                        <div class="col-2"></div>
-                                        <div class="col-2"></div>
-                                    </div>
-                                    <!-- end of header section -->
-
-                                    <t t-foreach="o.line_ids.filtered(lambda x: x.total &lt; 0)"
-                                        t-as="ln">
-                                        <!-- column -->
-                                        <div class="row">
-                                            <div class="col-3">
-                                                <span t-field="ln.name" />
-                                            </div>
-                                            <div class="col-3"></div>
-                                            <div class="col-2"></div>
-                                            <div class="col-2"></div>
-                                            <div class="col-2">
-                                                <span t-field="ln.total" />
+                                            <div class="col-2 nexus-gray">
+                                                <span t-field="o.struct_id.name" />
                                             </div>
                                         </div>
-                                        <!-- end of column -->
-                                    </t>
-                                    <!-- end of deductions -->
-
-                                    <!-- total deductions -->
-                                    <div class="row border-top border-bottom nexus-border border-3">
-                                        <div class="col-3 fw-bolder">Total Deductions</div>
-                                        <div class="col-3"></div>
-                                        <div class="col-2"></div>
-                                        <div class="col-2"></div>
-                                        <div class="col-2 text-end">
-                                            <span t-field="o.deductions" />
-                                        </div>
-                                    </div>
-                                    <!-- end of total deductions -->
-
-                                    <t
-                                        t-foreach="o.line_ids.filtered(lambda x:  x.total &gt; 0 and x.code == 'NET')"
-                                        t-as="net">
-                                        <!-- netpay section -->
-                                        <div
-                                            class="row mt-4 border-top border-bottom border-3 nexus-gray">
-                                            <div class="col-3 fw-bolder">NET PAY</div>
-                                            <div class="col-3"></div>
-                                            <div class="col-2"></div>
-                                            <div class="col-2"></div>
-                                            <div class="col-2 bg-dark text-light text-end">
-                                                <!-- <span t-field="net.total" /> -->
-                                                <span t-field="net.total" />
-                                            </div>
-                                        </div>
-                                        <!-- end of netpay section -->
-                                    </t>
-
-                                    <!-- signature section -->
-                                    <div class="row d-flex align-items-center my-4">
-                                        <div class="col-6 text-center">
-                                            <div class="image-box">
-                                                <!-- <img t-if="o.create_uid"
-                                                    t-att-src="image_data_uri(o.create_uid.user_signature)"
-                                                    alt="Signature" style="width:50%;height:150px;" /> -->
-                                                <img t-if="o.create_uid"
-                                                    t-att-src="image_data_uri(o.create_uid.user_signature)"
-                                                    alt="Signature" class="img-fluid" />
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <span t-field="o.create_date"
-                                                t-options="{'widget':'date'}" />
-                                        </div>
-                                    </div>
-                                    <!-- end of signature section -->
-
-                                    <!-- signature section -->
-                                    <div class="row d-flex align-items-center fw-bold">
-                                        <div class="col-6">HUMAN RESOURCE MANAGER</div>
-                                        <div class="col-6">DATE</div>
-                                    </div>
-                                    <!-- end of signature section -->
-
-                                    <br />
-                                    <br />
-
-                                    <div class="row">
-                                        <div class="col-2"></div>
-                                        <div class="col-8">
-                                            <p>
-                                                <strong>If you have any questions about this
-                                                    payslip, please
-                                                    contact:</strong>
-                                            <br /> [Prossy Namirembe, +256
-                                                (0) 700500283, prossy.namirembe@nexusgreen.com] </p>
-                                        </div>
-                                        <div class="col-2"></div>
+                                        <!-- column section -->
                                     </div>
                                 </div>
+                                <!-- end of intro section -->
+
+                                <!-- intro section2 -->
+                                <div class="row">
+                                    <div class="col-12">
+                                        <!-- header row -->
+                                        <div class="row nexus-green fw-bolder text-capitalize">
+                                            <div
+                                                class="col-3 border border-bottom-0 border-light">
+                                                Designation
+                                            </div>
+                                            <div
+                                                class="col-3 border border-bottom-0 border-light">
+                                                Tin</div>
+                                            <div
+                                                class="col-2 border border-bottom-0 border-light">
+                                                NSSF number
+                                            </div>
+                                            <div
+                                                class="col-2 border border-bottom-0 border-light">
+                                                Account Number
+                                            </div>
+                                            <div
+                                                class="col-2 border border-bottom-0 border-light">
+                                                Bank</div>
+                                        </div>
+                                        <!-- end of header row -->
+
+                                        <!-- column section2 -->
+                                        <div class="row">
+                                            <div class="col-3 nexus-gray">
+                                                <t t-esc="o.employee_id.job_title" />
+                                            </div>
+                                            <div class="col-3 nexus-gray">
+                                                <t t-esc="o.employee_id.tin" />
+                                            </div>
+                                            <div class="col-2 nexus-gray fit-text">
+                                                <t t-esc="o.employee_id.nssf" />
+                                            </div>
+                                            <div class="col-2 nexus-gray">
+                                                <!-- <t t-esc="o.employee_id.bank_account_id"/> -->
+                                            </div>
+                                            <div class="col-2 nexus-gray">
+                                                <t t-esc="o.employee_id.bank_name" />
+                                            </div>
+                                        </div>
+                                        <!-- column section2 -->
+                                    </div>
+                                </div>
+                                <!-- end of intro section2 -->
+
+                                <!-- earnings section -->
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <!-- header row -->
+                                        <span t-foreach="o.worked_days_line_ids"
+                                            t-as="worked_days">
+                                            <div
+                                                class="row nexus-gray fw-bolder text-capitalize">
+                                                <div
+                                                    class="col-3 border border-bottom-0 border-light">
+                                                    Earnings
+                                                </div>
+                                                <div
+                                                    class="col-3 border border-bottom-0 border-light fw-normal">
+                                                    Days Worked
+                                                </div>
+                                                <div
+                                                    class="col-2 border border-bottom-0 border-light">
+                                                    <span t-field="worked_days.number_of_days" />
+                                                </div>
+                                                <div
+                                                    class="col-2 border border-bottom-0 border-light"></div>
+                                                <div
+                                                    class="col-2 border border-bottom-0 border-light"></div>
+                                            </div>
+                                        </span>
+                                        <!-- end of header row -->
+                                        <t
+                                            t-foreach="o.line_ids.filtered(lambda x: x.total > 0 and x.code not in ['NET', 'GROSS'])"
+                                            t-as="line">
+                                            <!-- column -->
+                                            <div class="row">
+                                                <div class="col-3">
+                                                    <span t-field="line.name" />
+                                                </div>
+                                                <div class="col-3"></div>
+                                                <div class="col-2"></div>
+                                                <div class="col-2"></div>
+                                                <div class="col-2">
+                                                    <span t-field="line.total" />
+                                                </div>
+                                            </div>
+                                            <!-- end of column -->
+                                        </t>
+                                    </div>
+                                </div>
+                                <!-- end of earnings section -->
+
+                                <!-- gross pay section -->
+                                <div class="row border-bottom border-3 border-top nexus-border">
+                                    <div class="col-3 fw-bolder">Gross Pay</div>
+                                    <div class="col-3"></div>
+                                    <div class="col-2"></div>
+                                    <div class="col-2"></div>
+                                    <div class="col-2 text-end">
+                                        <span
+                                            t-esc="'{:.1f}'.format(sum(o.line_ids.filtered(lambda l: l.category_id.code in ['BASIC', 'ALW']).mapped('total')))" />
+                                    </div>
+                                </div>
+                                <!-- end of gross pay section -->
+
+                                <!-- deductions -->
+                                <!-- header section -->
+                                <div class="row nexus-gray">
+                                    <div class="col-3 fw-bolder">Deductions</div>
+                                    <div class="col-3"></div>
+                                    <div class="col-2"></div>
+                                    <div class="col-2"></div>
+                                    <div class="col-2"></div>
+                                </div>
+                                <!-- end of header section -->
+
+                                <t t-foreach="o.line_ids.filtered(lambda x: x.total &lt; 0)"
+                                    t-as="ln">
+                                    <!-- column -->
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <span t-field="ln.name" />
+                                        </div>
+                                        <div class="col-3"></div>
+                                        <div class="col-2"></div>
+                                        <div class="col-2"></div>
+                                        <div class="col-2">
+                                            <span t-field="ln.total" />
+                                        </div>
+                                    </div>
+                                    <!-- end of column -->
+                                </t>
+                                <!-- end of deductions -->
+
+                                <!-- total deductions -->
+                                <div class="row border-top border-bottom nexus-border border-3">
+                                    <div class="col-3 fw-bolder">Total Deductions</div>
+                                    <div class="col-3"></div>
+                                    <div class="col-2"></div>
+                                    <div class="col-2"></div>
+                                    <div class="col-2 text-end">
+                                        <span t-field="o.deductions" />
+                                    </div>
+                                </div>
+                                <!-- end of total deductions -->
+
+                                <t
+                                    t-foreach="o.line_ids.filtered(lambda x:  x.total &gt; 0 and x.code == 'NET')"
+                                    t-as="net">
+                                    <!-- netpay section -->
+                                    <div
+                                        class="row mt-4 border-top border-bottom border-3 nexus-gray">
+                                        <div class="col-3 fw-bolder">NET PAY</div>
+                                        <div class="col-3"></div>
+                                        <div class="col-2"></div>
+                                        <div class="col-2"></div>
+                                        <div class="col-2 bg-dark text-light text-end">
+                                            <!-- <span t-field="net.total" /> -->
+                                            <span t-field="net.total" />
+                                        </div>
+                                    </div>
+                                    <!-- end of netpay section -->
+                                </t>
+
+                                <!-- signature section -->
+                                <div class="row d-flex align-items-center my-4">
+                                    <div class="col-6 text-center">
+                                        <div class="image-box">
+                                            <!-- <img t-if="o.create_uid"
+                                                    t-att-src="image_data_uri(o.create_uid.user_signature)"
+                                                    alt="Signature" style="width:50%;height:150px;" /> -->
+                                            <img t-if="o.create_uid"
+                                                t-att-src="image_data_uri(o.create_uid.user_signature)"
+                                                alt="Signature" class="img-fluid" />
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <span t-field="o.create_date"
+                                            t-options="{'widget':'date'}" />
+                                    </div>
+                                </div>
+                                <!-- end of signature section -->
+
+                                <!-- signature section -->
+                                <div class="row d-flex align-items-center fw-bold">
+                                    <div class="col-6">HUMAN RESOURCE MANAGER</div>
+                                    <div class="col-6">DATE</div>
+                                </div>
+                                <!-- end of signature section -->
+
+                                <br />
+                                <br />
+
+                                <div class="row">
+                                    <div class="col-2"></div>
+                                    <div class="col-8">
+                                        <p>
+                                            <strong>If you have any questions about this
+                                                payslip, please
+                                                contact:</strong>
+                                            <br /> [Prossy Namirembe, +256 (0)
+                                            700500283, prossy.namirembe@nexusgreen.com] </p>
+                                    </div>
+                                    <div class="col-2"></div>
+                                </div>
                             </div>
+                        </div>
                         </div>
                         <!-- end main container -->
                     </t>
