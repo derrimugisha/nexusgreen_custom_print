@@ -44,7 +44,7 @@
                         </style>
 
                         <!-- main container -->
-                        <div class="container p-5 nexus-gray overflow">
+                        <div class="container p-5 nexus-gray fit-text">
                             <div class="row bg-white">
                                 <div class="col-12">
                                     <!-- header section -->
