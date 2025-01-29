@@ -132,10 +132,10 @@
                                                     <t t-esc="o.employee_id.nssf"/>
                                                 </div>
                                                 <div class="col-2 nexus-gray">
-                                                    <t t-field="o.employee_id.bank_account_id"/>
+                                                    <span t-field="o.employee_id.bank_account_id"/>
                                                 </div>
                                                 <div class="col-2 nexus-gray">
-                                                    <t t-field="o.employee_id.bank_name"/>
+                                                    <span t-field="o.employee_id.bank_name"/>
                                                 </div>
                                             </div>
                                             <!-- column section2 -->
