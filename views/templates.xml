@@ -200,7 +200,7 @@
           <!-- end of line items section -->
 
           <div class="col-12">
-            <p t-field="o.notes" />
+            <p t-field="o.note" />
             <div class="oe_structure" />
           </div>
         </div>
