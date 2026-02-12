@@ -29,8 +29,5 @@
         'views/templates.xml',
         'views/payslip_template.xml',
     ],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
-    ],
+    
 }
