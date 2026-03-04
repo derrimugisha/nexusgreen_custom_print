@@ -441,7 +441,7 @@
                 </div>
                 <!-- end of cole -->
               </div>
-              <div class="row" t-if="o.use_purchase_terms">
+              <div class="row" t-if="o.use_purchase_terms" style="page-break-before: always;">
                <div class="col-12">
                <p><b>Terms and Conditons</b></p>
                 <p t-field="o.terms_conditions"/>
