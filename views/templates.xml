@@ -6,7 +6,7 @@
       <field name="default" eval="False"/>
       <field name="format">A4</field>
       <field name="orientation">Portrait</field>
-      <field name="margin_top">10</field>
+      <field name="margin_top">5</field>
       <field name="margin_bottom">10</field>
       <field name="margin_left">7</field>
       <field name="margin_right">7</field>
@@ -55,13 +55,13 @@
           <div class="row mb-3">
           <div class="col-8"/>
             <div class="col-4 text-center">
-              <img t-if="o.company_logo" t-att-src="image_data_uri(o.company_logo)" style="height: auto;" alt="Company Logo"/>
+              <img t-if="o.company_logo" t-att-src="image_data_uri(o.company_logo)" style="height: auto; width: 75%;" alt="Company Logo"/>
             </div>
           </div>
 
           <!-- shipping address and vendor details -->
-          <div class="row mb-3 px-3">
-            <div class="col-6 border border-dark px-2 py-2">
+          <div class="row mb-3 ">
+            <div class="col-6 border border-dark py-2">
               <strong>Shipping Address</strong>
               <t t-if="o.dest_address_id">
                 <div t-field="o.dest_address_id"
@@ -72,7 +72,7 @@
                      t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
               </t>
             </div>
-            <div class="col-6 border border-dark px-2 py-2">
+            <div class="col-6 border border-dark  py-2">
               <strong>Vendor Details</strong>
               <div t-field="o.partner_id"
                    t-options='{"widget": "contact", "fields": ["address", "name", "phone", "vat"], "no_marker": True, "phone_icons": True}'/>
@@ -91,7 +91,7 @@
           <!-- end of purchase order ref -->
 
           <!-- represenative section -->
-          <div class="row mb-3 px-3">
+          <div class="row mb-3 ">
             <div class="col-12 border border-dark px-2 py-2">
               <div class="row">
                 <div class="col-4">
