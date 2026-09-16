@@ -320,7 +320,7 @@
                                   <strong>Checked By</strong>
                                 </div>
                                 <div class="col-6" style="height: 60px;">
-                                  <span t-esc="o.checked_by.name" />
+                                  <span t-if="o.checked_by" t-esc="o.checked_by.name" />
                                 </div>
                               </div>
                               <div class="row">
@@ -356,7 +356,7 @@
                                 </div>
                                 <div class="col-6" style="height: 60px;">
                                   <t t-if="o.state in ['approved','pm','coo','ceo']">
-                                    <span t-esc="o.approval_by.name" />
+                                    <span t-if="o.approval_by" t-esc="o.approval_by.name" />
                                   </t>
                                 </div>
                               </div>
@@ -400,7 +400,7 @@
                                 </div>
                                 <div class="col-6">
                                   <t t-if="o.state in ['approved']">
-                                    <span t-esc="o.ceo.name" />
+                                    <span t-if="o.ceo" t-esc="o.ceo.name" />
                                   </t>
                                 </div>
                               </div>
