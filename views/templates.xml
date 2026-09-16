@@ -117,7 +117,7 @@
                     </strong>
                   </div>
                   <div>
-                    <span t-field="o.date_order" />
+                    <span t-field="o.date_approve" />
                   </div>
                 </div>
               </div>
@@ -127,7 +127,7 @@
                     <strong>Order Deadline:</strong>
                   </div>
                   <div>
-                    <span t-field="o.date_order" class="m-0" />
+                    <span t-field="o.date_order" class="m-0" t-options="{'widget':'date'}" />
                   </div>
                 </div>
                 <div class="col-4">
@@ -135,7 +135,7 @@
                     <strong>Expected Arrival:</strong>
                   </div>
                   <div>
-                    <span t-field="o.date_planned" />
+                    <span t-field="o.date_planned" t-options="{'widget':'date'}" />
                   </div>
                 </div>
 
