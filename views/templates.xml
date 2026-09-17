@@ -298,7 +298,7 @@
                                 </div>
                                 <div class="col-6">
                                   <div style="height: 80px;">
-                                    <div t-if="o.create_uid.signature" t-field="o.create_uid.signature" t-options="{'widget': 'html'}" class="sign"/>
+                                    <div t-if="o.create_uid.user_signature" t-field="o.create_uid.user_signature" t-options="{'widget': 'html'}" class="sign"/>
                                   </div>
                                 </div>
                               </div>
@@ -330,7 +330,7 @@
                                 <div class="col-6">
                                   <div style="height: 80px;">
                                     <t t-if="o.state == 'approved'">
-                                      <div t-if="o.checked_by.signature" t-field="o.checked_by.signature" t-options="{'widget': 'html'}" class="sign"/>
+                                      <div t-if="o.checked_by.user_signature" t-field="o.checked_by.user_signature" t-options="{'widget': 'html'}" class="sign"/>
                                     </t>
                                   </div>
                                 </div>
@@ -368,7 +368,7 @@
                                   <div style="height: 80px;">
                                     <t t-if="o.state in ['approved','pm','coo','ceo']">
 
-                                      <div t-if="o.approval_by.signature" t-field="o.approval_by.signature" t-options="{'widget': 'html'}" class="sign"/>
+                                      <div t-if="o.approval_by.user_signature" t-field="o.approval_by.user_signature" t-options="{'widget': 'html'}" class="sign"/>
                                     </t>
                                   </div>
                                 </div>
@@ -412,7 +412,7 @@
                                   <t t-if="o.state == 'approved'">
                                     <div style="height: 80px;">
                                       <t t-if="o.state == 'approved' and o.require_ceo">
-                                        <div t-if="o.ceo.signature" t-field="o.ceo.signature" t-options="{'widget': 'html'}" class="sign"/>
+                                        <div t-if="o.ceo.user_signature" t-field="o.ceo.user_signature" t-options="{'widget': 'html'}" class="sign"/>
                                       </t>
                                     </div>
                                   </t>

@@ -3,6 +3,30 @@
 from odoo import models, fields, api
 
 
+class NexusResUser(models.Model):
+    _inherit = 'res.users'
+
+    user_signature = fields.Html(string='User Signature', sanitize=False)
+
+
+class HrEmployee(models.Model):
+    _inherit = 'hr.employee'
+
+    user_signature = fields.Html(
+        related='user_id.user_signature',
+        string='User Signature',
+        readonly=False,
+    )
+
+class HrEmployeePublic(models.Model):
+    _inherit = 'hr.employee.public'
+
+    user_signature = fields.Html(
+        related='user_id.user_signature',
+        string='User Signature',
+        readonly=False,
+    )
+
 class NexusGreenWaterMark(models.Model):
     _inherit = 'purchase.order'
 

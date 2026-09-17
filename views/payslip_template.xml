@@ -328,10 +328,7 @@
                                     <div class="row d-flex align-items-center my-4">
                                         <div class="col-6 text-center">
                                             <div class="image-box">
-                                                <!-- <img t-if="o.create_uid"
-                                                    t-att-src="image_data_uri(o.create_uid.user_signature)"
-                                                    alt="Signature" style="width:50%;height:150px;" /> -->
-                                                <img t-if="o.create_uid" t-att-src="image_data_uri(o.create_uid.user_signature)" alt="Signature" class="img-fluid"/>
+                                                <div t-if="o.create_uid.user_signature" t-field="o.create_uid.user_signature" t-options="{'widget': 'html'}" class="sign"/>
                                             </div>
                                         </div>
                                         <div class="col-6">
