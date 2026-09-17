@@ -329,9 +329,9 @@
                                 </div>
                                 <div class="col-6">
                                   <div >
-                                    <t t-if="o.state == 'approved'">
+                                    <!-- <t t-if="o.state == 'approved'"> -->
                                       <img t-if="o.checked_by.user_signature_image" t-att-src="image_data_uri(o.checked_by.user_signature_image)" class="sign" alt="Signature"/>
-                                    </t>
+                                    <!-- </t> -->
                                   </div>
                                 </div>
                               </div>
@@ -340,9 +340,10 @@
                                   <strong>Date:</strong>
                                 </div>
                                 <div class="col-6">
-                                  <t t-if="o.state == 'approved'">
+                                  <!-- <t t-if="o.state == 'approved'">
                                     <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y')" />
-                                  </t>
+                                  </t> -->
+                                  <span t-field="o.date_approve" t-options="{'widget':'date'}" />
                                 </div>
                               </div>
                             </div>
