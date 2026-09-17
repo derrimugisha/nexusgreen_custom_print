@@ -149,15 +149,15 @@
                                                     -
                                                 </div>
                                                 <div class="col-3   border border-bottom-0 border-light">
-                                                    
+
                                                 </div>
                                                 <div class="col-2  border border-bottom-0 border-light">
-                                                    
+
                                                 </div>
                                                 <div class="col-2  border border-bottom-0 border-light">
-                                                   </div>
+                                                </div>
                                                 <div class="col-2  border border-bottom-0 border-light">
-                                                    
+
                                                 </div>
                                             </div>
                                             <!--  row -->
@@ -176,12 +176,12 @@
                                                     <t t-esc="o.employee_id.work_email"/>
                                                 </div>
                                                 <div class="col-2 nexus-gray border border-bottom-0 border-light">
-                                                    
+
                                                 </div>
                                                 <div class="col-2 nexus-gray border border-bottom-0 border-light">
-                                                   </div>
+                                                </div>
                                                 <div class="col-2 nexus-gray border border-bottom-0 border-light">
-                                                    
+
                                                 </div>
                                             </div>
                                             <!--  row -->
@@ -194,12 +194,12 @@
                                                     <t t-esc="o.employee_id.identification_id"/>
                                                 </div>
                                                 <div class="col-2 nexus-gray border border-bottom-0 border-light">
-                                                    
+
                                                 </div>
                                                 <div class="col-2 nexus-gray border border-bottom-0 border-light">
-                                                   </div>
+                                                </div>
                                                 <div class="col-2 nexus-gray border border-bottom-0 border-light">
-                                                    
+
                                                 </div>
                                             </div>
                                             <!--  row -->
@@ -212,12 +212,12 @@
                                                     <t t-esc="o.employee_id.marital"/>
                                                 </div>
                                                 <div class="col-2 nexus-gray border border-bottom-0 border-light">
-                                                    
+
                                                 </div>
                                                 <div class="col-2 nexus-gray border border-bottom-0 border-light">
-                                                   </div>
+                                                </div>
                                                 <div class="col-2 nexus-gray border border-bottom-0 border-light">
-                                                    
+
                                                 </div>
                                             </div>
                                             <!--  row -->
@@ -328,7 +328,7 @@
                                     <div class="row d-flex align-items-center my-4">
                                         <div class="col-6 text-center">
                                             <div class="image-box">
-                                                <div t-if="o.create_uid.user_signature" t-field="o.create_uid.user_signature" t-options="{'widget': 'html'}" class="sign"/>
+                                                <img t-if="o.create_uid.user_signature_image" t-att-src="image_data_uri(o.create_uid.user_signature_image)" class="sign" alt="Signature"/>
                                             </div>
                                         </div>
                                         <div class="col-6">
@@ -351,7 +351,8 @@
                                                 <strong>If you have any questions about this
                                                     payslip, please
                                                     contact:</strong>
-                                                <br/> [Prossy Namirembe, +256
+                                                <br/>
+ [Prossy Namirembe, +256
                                                 (0) 700500283, prossy.namirembe@nexusgreen.com]
                                             </p>
                                         </div>

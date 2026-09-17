@@ -2,4 +2,5 @@
 
 ## Purchase Order Report
 
-- The shared `.sign` rule in `views/templates.xml` renders HTML user signatures with a `140px` maximum height so signatures are readable in the purchase-order footer.
+- `res.users.user_signature_image` stores an uploaded signature image and is exposed on the user profile with the image widget.
+- Purchase-order and payslip reports render `user_signature_image` as an image with a `140px` height so signatures are readable.
