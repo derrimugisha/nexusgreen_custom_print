@@ -7,7 +7,7 @@
       <field name="inherit_id" ref="base.view_users_form"/>
       <field name="arch" type="xml">
         <xpath expr="//notebook//page[@name='preferences']/group/group/field[@name='signature']" position="after">
-          <field name="user_signature" widget="html" options="{'height': 112, 'resizable': true}"/>
+          <field name="user_signature" widget="html" />
         </xpath>
       </field>
     </record>
@@ -19,7 +19,7 @@
       <field name="arch" type="xml">
         <xpath expr="//notebook" position="inside">
           <page string="Signature">
-            <field name="user_signature" widget="html" options="{'height': 112, 'resizable': true}" invisible="not user_id"/>
+            <field name="user_signature" widget="html"  invisible="not user_id"/>
           </page>
         </xpath>
       </field>

@@ -34,7 +34,7 @@
         <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
         <div class="page" style="position:relative;">
           <style> th, td { border: 1px solid #000000 !important; padding: 5px; } img { width: 100%;} .sign {
-            width: 100%; height:100%; object-fit: contain; } .sign { max-height: 80px; overflow: hidden; } .sign img { max-height: 80px; width: auto; object-fit: contain; } .watermark { position: fixed;
+            width: 100%; height:100%; object-fit: contain; } .sign { max-height: 80px; overflow: hidden; } .watermark { position: fixed;
             z-index:99; top:500px;left:250px; opacity:0.15; } </style>
           <!-- water mark -->
           <div class="col-12 d-flex justify-content-center">
@@ -293,11 +293,11 @@
                                 </div>
                               </div>
                               <div class="row">
-                                <div class="col-6" style="height: 80px;">
+                                <div class="col-6" >
                                   <strong>Signature:</strong>
                                 </div>
                                 <div class="col-6">
-                                  <div style="height: 80px;">
+                                  <div >
                                     <div t-if="o.create_uid.user_signature" t-field="o.create_uid.user_signature" t-options="{'widget': 'html'}" class="sign"/>
                                   </div>
                                 </div>
@@ -324,11 +324,11 @@
                                 </div>
                               </div>
                               <div class="row">
-                                <div class="col-6" style="height: 80px;">
+                                <div class="col-6" >
                                   <strong>Signature:</strong>
                                 </div>
                                 <div class="col-6">
-                                  <div style="height: 80px;">
+                                  <div >
                                     <t t-if="o.state == 'approved'">
                                       <div t-if="o.checked_by.user_signature" t-field="o.checked_by.user_signature" t-options="{'widget': 'html'}" class="sign"/>
                                     </t>
@@ -361,11 +361,11 @@
                                 </div>
                               </div>
                               <div class="row">
-                                <div class="col-6" style="height: 80px;">
+                                <div class="col-6" >
                                   <strong>Signature:</strong>
                                 </div>
                                 <div class="col-6">
-                                  <div style="height: 80px;">
+                                  <div >
                                     <t t-if="o.state in ['approved','pm','coo','ceo']">
 
                                       <div t-if="o.approval_by.user_signature" t-field="o.approval_by.user_signature" t-options="{'widget': 'html'}" class="sign"/>
@@ -405,12 +405,12 @@
                                 </div>
                               </div>
                               <div class="row">
-                                <div class="col-6" style="height: 80px;">
+                                <div class="col-6" >
                                   <strong>Signature:</strong>
                                 </div>
                                 <div class="col-6">
                                   <t t-if="o.state == 'approved'">
-                                    <div style="height: 80px;">
+                                    <div >
                                       <t t-if="o.state == 'approved' and o.require_ceo">
                                         <div t-if="o.ceo.user_signature" t-field="o.ceo.user_signature" t-options="{'widget': 'html'}" class="sign"/>
                                       </t>
@@ -442,11 +442,11 @@
                                 </div>
                               </div>
                               <div class="row">
-                                <div class="col-6" style="height: 80px;">
+                                <div class="col-6" >
                                   <strong>Signature:</strong>
                                 </div>
                                 <div class="col-6">
-                                  <div style="height: 80px;">
+                                  <div >
 
                                   </div>
                                 </div>
