@@ -13,16 +13,14 @@
       </field>
     </record>
 
+    <!-- Deactivate duplicate Signature tab on employee (same as Users → Preferences). -->
     <record id="hr_employee_signature" model="ir.ui.view">
       <field name="name">hr.employee.form.signature</field>
       <field name="model">hr.employee</field>
       <field name="inherit_id" ref="hr.view_employee_form"/>
+      <field name="active" eval="False"/>
       <field name="arch" type="xml">
-        <xpath expr="//notebook" position="inside">
-          <page string="Signature">
-            <field name="user_signature" widget="html" invisible="not user_id"/>
-          </page>
-        </xpath>
+        <xpath expr="//form" position="inside"/>
       </field>
     </record>
 
